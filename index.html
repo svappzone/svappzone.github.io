@@ -1,7 +1,187 @@
-
 <!DOCTYPE html>
 <html>
-    <body>
-        Hello index
-    </body>
+
+<head>
+    <style>
+        #data {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+            width: 33%;
+            border-radius: 5px;
+            padding: 10px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        img {
+            border-radius: 5px 5px 0 0;
+            width: 100%;
+        }
+
+        .container {
+            padding: 2px 16px;
+        }
+
+        h4 {
+            font-size: 14px;
+            line-height: 25px;
+            color: black;
+        }
+
+        .title {
+            background-color: #3e1628;
+            text-align: center;
+            padding: 36px;
+            color: white;
+            font-size: 42px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="title">
+        SV Apps
+    </div>
+    <div id="data">
+    </div>
+</body>
+<script>
+    const moreApps = [
+        {
+            name: 'All God Sahasranamam, Ashtothram and Namavali',
+            img: 'godSongs.png',
+            link: 'com.svappzone.allGodSahasranamamsAshtothramsAndNaamaavali'
+        },
+        {
+            name: 'Navagraha Stotram, Aditya Hrudayam, Surya Ashtakam',
+            img: 'navagrahalu.png',
+            link: 'com.svappzone.navagrahaStotram'
+        },
+        {
+            name: 'Ramayanam, Bhagavad Gita, Mahabharatham in Telugu',
+            img: 'ramayanam.PNG',
+            link: 'com.svappzone.ramayanam.mahabharatham.bhagavatam.bhagavadgita.in.telugu'
+        },
+        {
+            name: 'Lalitha Sahasranamam',
+            img: 'lalithaSahasranamalu.png',
+            link: 'com.svappzone.lalithaSahasranamam'
+        },
+        {
+            name: 'Vishnu Sahasranamam',
+            img: 'VishnuSahasranamalu.png',
+            link: 'com.svappzone.vishnuSahasranamam'
+        },
+        {
+            name: 'Hanuman Chalisa',
+            img: 'HanumanChalisa.png',
+            link: 'com.svappzone.hanumanChalisa'
+        },
+        {
+            name: 'Shiva God Songs',
+            img: 'shivaGodSongs.PNG',
+            link: 'com.svappzone.shivagodsongs'
+        },
+        {
+            name: 'Durga Navratri God Songs',
+            img: 'durgaGodSongs.PNG',
+            link: 'com.svappzone.durgaNavratriGodSongs'
+        },
+        {
+            name: 'Annamayya Keerthanalu',
+            img: 'annamayya.png',
+            link: 'com.svappzone.annamayyaKeerthanalu'
+        },
+        {
+            name: 'Venkateswara God Songs',
+            img: 'venkateswaraGodSongs.PNG',
+            link: 'com.svappzone.venkateswaragodsongsintelugu'
+        },
+        {
+            name: 'Sai Baba God Songs Hindi',
+            img: 'saibaba.png',
+            link: 'com.svappzone.saibabagodsongsinhindi'
+        },
+        {
+            name: 'Sai Baba God Songs Telugu',
+            img: 'saibaba.png',
+            link: 'com.svappzone.saibabagodsongs'
+        },
+        {
+            name: 'Ganesh Songs | गणेश मंत्र, आरती, चालीसा',
+            img: 'ganesh.png',
+            link: 'com.svappzone.ganeshSongs'
+        },
+        {
+            name: 'Ganesh Songs | గణేష్ భక్తి  పాటలు',
+            img: 'ganesh.png',
+            link: 'com.svappzone.ganeshSongsTelugu'
+        },
+        {
+            name: 'Sri Rama God Songs',
+            img: 'sriRamaGodSongs.PNG',
+            link: 'com.svappzone.sriramagodsongsintelugu'
+        },
+        {
+            name: 'National Anthem of India | Jana Gana Mana',
+            img: 'deshBhakti.png',
+            link: 'com.svappzone.nationalAnthemOfIndia'
+        },
+        {
+            name: 'Walk With Jagan Anna',
+            img: 'walkWithJagan.png',
+            link: 'com.svappzone.walkwithjagan'
+        },
+        {
+            name: 'Kids Preschool',
+            img: 'preschool.png',
+            link: 'kids.preschool.educationalAppForKids'
+        },
+        {
+            name: 'Memory Game For Kids',
+            img: 'memoryGame.PNG',
+            link: 'com.svappzone.kidsmemorygame'
+        }
+    ];
+
+    moreApps.forEach((app) => {
+        /* create elements start */
+        let cardElement = document.createElement('a');
+        let imgElement = document.createElement('img');
+        let nameParentElement = document.createElement('div');
+        let nameElement = document.createElement('h4');
+        /* create elements start */
+
+        /* add attributes start */
+        cardElement.setAttribute('class', 'card');
+        cardElement.setAttribute('href', `https://play.google.com/store/apps/details?id=${app.link}`);
+        // cardElement.setAttribute('', 'card');
+        imgElement.setAttribute('src', `images/${app.img}`);
+        imgElement.setAttribute('alt', app.name);
+        nameParentElement.setAttribute('class', 'container');
+        /* add attributes end */
+
+        /* add text nodes start */
+        nameElement.appendChild(document.createTextNode(app.name));
+        /* add text nodes end */
+
+        /* append element start */
+        cardElement.appendChild(imgElement);
+        cardElement.appendChild(nameElement);
+        cardElement.appendChild(nameParentElement);
+        document.getElementById('data').appendChild(cardElement);
+        /* append element end */
+    });
+</script>
+
 </html>
